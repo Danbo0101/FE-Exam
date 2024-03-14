@@ -1,0 +1,62 @@
+.quiz-container {
+
+    .add-new {
+        .img-preview {
+
+            height: 150px;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(163, 163, 163);
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        .label-upload {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            width: fit-content;
+            padding: 4px 10px;
+            border-radius: 5px;
+            background: #eeee;
+            cursor: pointer;
+
+            &:hover {
+                background: #dcdcdc;
+            }
+        }
+    }
+
+    // padding: 20px;
+    button.accordion-button {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .legend {
+        font-size: 20px;
+    }
+
+    .table-detail {
+        padding: 20px;
+
+
+        .table-title {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .table {
+            button {
+                margin: 0 15px;
+            }
+        }
+
+    }
+}

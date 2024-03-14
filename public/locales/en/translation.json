@@ -1,0 +1,12 @@
+{
+    "homepage": {
+        "title1": " Forms that break the norm",
+        "title2": "Get more data—like signups, feedback,and anything else—with forms designed to be refreshingly different.",
+        "btn1": "Start Now",
+        "btn2": "Get started — it's free"
+    },
+    "header": {
+        "btnLogin": "Login",
+        "btnSignUp": "SignUp"
+    }
+}

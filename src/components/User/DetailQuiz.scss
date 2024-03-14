@@ -1,0 +1,107 @@
+.detail-quiz-container {
+    display: flex;
+    gap: 30px;
+    padding: 70px;
+
+    .left-container {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        width: 70%;
+        padding: 20px;
+
+        .title {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .image-question {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+
+            img {
+                width: 250px;
+                height: 200px;
+            }
+
+        }
+
+        .question-content {
+            .question {
+                font-size: 20px;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            .answers {
+                padding: 20px;
+
+                .a-child {
+                    text-align: left;
+                    padding: 5px;
+                    margin-left: 40px;
+                }
+            }
+
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+    }
+
+    .right-container {
+        border: 2px solid #ccc;
+        width: 30%;
+        border-radius: 5px;
+        padding: 20px;
+
+        .main-timer {
+            border-bottom: 1px dashed rgb(79, 79, 79);
+            font-size: 20px;
+            font-weight: 600;
+            padding: 15px 0;
+            text-align: center;
+
+
+        }
+
+        .main-questions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 15px 22px;
+            justify-content: center;
+
+            .question {
+                margin-left: 5px;
+                border: 1px solid rgb(35, 35, 35);
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                // padding: 10px 17px;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                padding: 6px;
+                cursor: pointer;
+
+                &:hover {
+                    color: red;
+                }
+
+                &.selected {
+                    background: rgb(107, 107, 107);
+                }
+
+                &.clicked {
+                    color: red;
+                }
+
+
+            }
+        }
+    }
+}

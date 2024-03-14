@@ -1,0 +1,51 @@
+.dashboard-container {
+    padding: 20px;
+
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        padding: 20px 0;
+    }
+
+    .main {
+        display: flex;
+        padding: 20px 0;
+        gap: 50px;
+
+        .left-content {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            .child {
+                display: flex;
+                flex-direction: column;
+                width: calc(50% - 10px);
+                height: 150px;
+                border: 1px solid orange;
+                border-radius: 10px;
+                justify-content: center;
+                align-items: center;
+
+                .child-title {
+                    font-size: 20px;
+                }
+
+                .child-data {
+                    font-size: 30px;
+                    font-weight: 500;
+                }
+
+            }
+        }
+
+        .right-content {
+            width: 50%;
+            height: 400px;
+            padding: 10px 0;
+        }
+    }
+
+
+}
