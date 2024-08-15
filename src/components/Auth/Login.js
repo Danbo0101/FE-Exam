@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import { postLogin } from "../../services/authService";
 import "./Login.scss";
 import { useState } from "react";
@@ -15,6 +16,9 @@ const Login = (props) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const role = useSelector(state => state.user.account.role);
+
 
 
 
@@ -42,11 +46,17 @@ const Login = (props) => {
 
         let data = await postLogin(email, password)
         if (data && data.EC === 0) {
-            // console.log("check data", data);
             dispatch(doLogin(data));
             toast.success(data.EM);
             setIsLoading(false);
-            navigate('/')
+            if (data.DT.role === 'Admin') {
+                navigate('/admins');
+            } else if (data.DT.role === 'USER' || data.DT.role === 'User') {
+                navigate('/users');
+            } else {
+                alert("me")
+            }
+            // navigate('/')
 
 
         }
@@ -57,7 +67,7 @@ const Login = (props) => {
     }
 
     const handleKeyDown = (event) => {
-        console.log(event.key);
+        // console.log(event.key);
         if (event.key === "Enter") {
             handleLogin();
         }

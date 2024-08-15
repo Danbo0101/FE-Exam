@@ -18,6 +18,8 @@
             align-items: center;
             padding: 15px;
 
+
+
             .right-content {
                 display: flex;
                 gap: 15px;
@@ -28,6 +30,10 @@
                 cursor: pointer;
             }
 
+        }
+
+        .cleanza-article .title-head {
+            font-size: 30px !important;
         }
 
         .admin-main {

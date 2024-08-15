@@ -1,15 +1,18 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "../DetailQuiz.scss"
 import CountDown from "./CountDown";
 
 const RightContent = (props) => {
 
-    const { dataQuiz } = props;
+    const { dataQuiz, isSubmitQuiz } = props;
+    const [count, setCount] = useState(3232);
+
+    // console.log(isSubmitQuiz)
 
     const refDiv = useRef([]);
 
     const toTimeUp = () => {
-        props.handleSubmit();
+        props.handleFinishQuizx();
     }
 
     const getClassQuestion = (question, index) => {
@@ -53,6 +56,9 @@ const RightContent = (props) => {
             <div className="main-timer">
                 <CountDown
                     toTimeUp={toTimeUp}
+                    count={count}
+                    setCount={setCount}
+                    isSubmitQuiz={isSubmitQuiz}
                 />
             </div>
             <div className="main-questions">

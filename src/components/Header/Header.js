@@ -11,7 +11,7 @@ import Language from './Language';
 import { useTranslation, Trans } from 'react-i18next';
 
 
-const Header = () => {
+const Header = (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { t } = useTranslation();
@@ -36,13 +36,13 @@ const Header = () => {
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
                 {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
-                <NavLink to='/' className='navbar-brand'>React-Bootstrap</NavLink>
+                <NavLink to='/' className='navbar-brand'>React-Exam</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <NavLink to='/' className='nav-link'>Home</NavLink>
+                        {/* <NavLink to='/' className='nav-link'>Home</NavLink>
                         <NavLink to='/users' className='nav-link'>User</NavLink>
-                        <NavLink to='/admins' className='nav-link'>Admin</NavLink>
+                        <NavLink to='/admins' className='nav-link'>Admin</NavLink> */}
 
                     </Nav>
                     <Nav>
@@ -63,7 +63,9 @@ const Header = () => {
                             </>
                             :
                             <NavDropdown title="Setting" id="basic-nav-dropdown">
-                                <NavDropdown.Item >Profile</NavDropdown.Item>
+                                <NavDropdown.Item
+                                    onClick={() => props.setShow(true)}
+                                >Profile</NavDropdown.Item>
                                 <NavDropdown.Item onClick={() => handleLogout()}>Log out</NavDropdown.Item>
                             </NavDropdown>
                         }

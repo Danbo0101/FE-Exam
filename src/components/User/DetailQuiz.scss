@@ -1,7 +1,11 @@
+ol.breadcrumb {
+    padding: 50px 0px 10px 30px;
+}
+
 .detail-quiz-container {
     display: flex;
     gap: 30px;
-    padding: 70px;
+    // padding: 70px;
 
     .left-container {
         border: 2px solid #ccc;
@@ -18,6 +22,8 @@
             display: flex;
             justify-content: center;
             padding: 20px;
+
+            height: 250px;
 
             img {
                 width: 250px;
@@ -41,6 +47,18 @@
                     padding: 5px;
                     margin-left: 40px;
                 }
+
+                svg.correct {
+                    font-size: 25px;
+                    color: green;
+                }
+
+                svg.incorrect {
+                    font-size: 25px;
+                    color: red;
+                }
+
+
             }
 
         }

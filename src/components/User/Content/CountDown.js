@@ -4,9 +4,7 @@ import { useEffect, useState } from "react";
 
 const CountDown = (props) => {
 
-    const { toTimeUp } = props;
-
-    const [count, setCount] = useState(3232);
+    const { toTimeUp, count, setCount, isSubmitQuiz } = props;
 
     useEffect(() => {
         if (count === 0) {
@@ -14,14 +12,15 @@ const CountDown = (props) => {
             return;
         }
         const timer = setInterval(() => {
-            setCount(count - 1);
-        }, 1000)
+            if (!isSubmitQuiz) {
+                setCount(count - 1);
+            }
+        }, 1000);
 
         return () => {
             clearInterval(timer);
-        }
-
-    }, [count])
+        };
+    }, [count, isSubmitQuiz]);
 
     const toHHMMSS = (secs) => {
         const sec_num = parseInt(secs, 10)

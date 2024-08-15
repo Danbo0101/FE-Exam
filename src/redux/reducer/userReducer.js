@@ -28,6 +28,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 },
                 isAuthenticated: true
             };
+
         case USER_LOGOUT_SUCCESS:
             return {
                 ...state, account: {

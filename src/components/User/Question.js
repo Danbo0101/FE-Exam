@@ -1,7 +1,13 @@
 import _ from "lodash";
+import { useState } from 'react';
+import Lightbox from "react-awesome-lightbox";
+import { useTranslation } from 'react-i18next';
+import { IoIosClose, IoIosCheckmark } from "react-icons/io";
 
 const Question = (props) => {
-    const { data, index } = props;
+    const { data, index, isShowAnswer } = props;
+
+    const [isPreviewImage, setIsPreviewImage] = useState(false);
 
 
     if (_.isEmpty(data)) {
@@ -16,11 +22,28 @@ const Question = (props) => {
 
     return (
         <>
-            {data.image ? <div className="image-question">
-                <img src={`data:image/jpeg;base64,${data.image}`} />
-            </div>
+            {data.image ?
+                <div className="image-question">
+                    <img
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => setIsPreviewImage(true)}
+                        src={`data:image/jpeg;base64,${data.image}`}
+                    />
+
+                    {isPreviewImage === true &&
+                        <Lightbox
+                            image={`data:image/jpeg;base64,${data.image}`}
+                            title={"Question Image"}
+                            onClose={() => setIsPreviewImage(false)}
+                        >
+                        </Lightbox>
+                    }
+                </div>
+
                 :
-                <></>}
+                <div className='image-question'>
+
+                </div>}
 
             <div className="question-content">
                 <div className="question">
@@ -36,11 +59,23 @@ const Question = (props) => {
                                         className="form-check-input"
                                         type="checkbox"
                                         checked={ans.isSelected}
+                                        disabled={props.isSubmitQuiz}
                                         onChange={(event) => handleCheckBox(event, ans.id, data.questionId)}
                                     />
                                     <label className="form-check-label" >
                                         {ans.description}
                                     </label>
+                                    {isShowAnswer === true &&
+                                        <>
+                                            {ans.isSelected === true && ans.isCorrect === false
+                                                && <IoIosClose className='incorrect' />
+                                            }
+
+                                            {ans.isCorrect === true
+                                                && <IoIosCheckmark className='correct' />
+                                            }
+                                        </>
+                                    }
                                 </div>
 
                             )

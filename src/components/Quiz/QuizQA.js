@@ -78,8 +78,6 @@ const QuizQA = () => {
             .then(buf => new File([buf], filename, { type: mimeType }));
     }
 
-
-
     const fetchQuizWithQA = async () => {
         let res = await getQuizForQA(selectedQuiz.value)
         if (res && res.EC === 0) {
@@ -355,10 +353,6 @@ const QuizQA = () => {
                 isCorrect = false;
             }
         }
-
-
-
-
 
         if (countA < 2) {
             toast.error(`Need at least two answer in Question ${indexQ1 + 1}`)

@@ -18,8 +18,24 @@ const postLogout = (email, refresh_token) => {
     })
 }
 
+const postUpdateProfile = (userName, image) => {
+    const data = new FormData();
+    data.append('username', userName);
+    data.append('userImage', image);
+    return axios.post('api/v1/profile', data);
+}
+
+const postChangePassword = (current_password, new_password) => {
+    return axios.post(`api/v1/change-password`, {
+        current_password,
+        new_password
+    });
+}
+
 export {
     postLogin,
     postRegister,
-    postLogout
+    postLogout,
+    postUpdateProfile,
+    postChangePassword
 }

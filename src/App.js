@@ -2,6 +2,8 @@ import './App.scss';
 import Header from './components/Header/Header';
 import { Link, Outlet } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import { useState } from 'react';
+import Profile from './components/Profile/Profile';
 
 // const App = () => {
 //   return (
@@ -24,11 +26,16 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 // }
 
 const App = () => {
+
+  const [showProfile, setShowProfile] = useState(false);
+
   return (
 
     <div className="app-container">
       <div className='header-container'>
-        <Header />
+        <Header
+          setShow={setShowProfile}
+        />
       </div>
       <div className='main-container'>
         <div className='slidenav-container'>
@@ -40,6 +47,11 @@ const App = () => {
           </PerfectScrollbar>
         </div>
       </div>
+      <Profile
+        show={showProfile}
+        setShow={setShowProfile}
+
+      />
     </div>
   );
 }

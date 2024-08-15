@@ -135,6 +135,7 @@ const UpdateUser = (props) => {
                             <label className="form-label">Role</label>
                             <select className="form-select"
                                 onChange={(event) => setRole(event.target.value)}
+                                disabled
                             >
                                 <option value={role}>
                                     {role === "USER" || role === "User" ? "User" : "Admin"}
